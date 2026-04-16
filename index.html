@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <title>KnitLab — Sample Data Collector</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- HEADER                                   -->
+  <!-- ════════════════════════════════════════ -->
+  <header id="app-header">
+    <div class="header-inner">
+      <div class="logo-group">
+        <svg class="logo-icon" viewBox="0 0 40 40"
+             width="40" height="40">
+          <rect x="2" y="2" width="36" height="36"
+                rx="6" fill="#1a1a2e" />
+          <path d="M10 14 Q14 10 18 14 Q22 18 26 14
+                   Q30 10 34 14"
+                stroke="#e94560" stroke-width="2.5"
+                fill="none" />
+          <path d="M10 22 Q14 18 18 22 Q22 26 26 22
+                   Q30 18 34 22"
+                stroke="#0f3460" stroke-width="2.5"
+                fill="none" />
+          <path d="M10 30 Q14 26 18 30 Q22 34 26 30
+                   Q30 26 34 30"
+                stroke="#16213e" stroke-width="2.5"
+                fill="none" />
+        </svg>
+        <h1>KnitLab <span class="version">v1.0</span></h1>
+      </div>
+      <nav>
+        <button class="nav-btn active"
+                data-section="entry">
+          New Sample
+        </button>
+        <button class="nav-btn"
+                data-section="library">
+          Library
+        </button>
+        <button class="nav-btn"
+                data-section="export">
+          Export
+        </button>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- MAIN CONTENT                             -->
+  <!-- ════════════════════════════════════════ -->
+  <main id="app-main">
+
+    <!-- ──────────────────────────────────── -->
+    <!-- SECTION: NEW SAMPLE ENTRY            -->
+    <!-- ──────────────────────────────────── -->
+    <section id="section-entry" class="section active">
+
+      <!-- PROGRESS BAR -->
+      <div id="progress-bar">
+        <div class="step active" data-step="1">
+          <span class="step-num">1</span>
+          <span class="step-label">Metadata</span>
+        </div>
+        <div class="step" data-step="2">
+          <span class="step-num">2</span>
+          <span class="step-label">Yarn</span>
+        </div>
+        <div class="step" data-step="3">
+          <span class="step-num">3</span>
+          <span class="step-label">Pattern</span>
+        </div>
+        <div class="step" data-step="4">
+          <span class="step-num">4</span>
+          <span class="step-label">Machine</span>
+        </div>
+        <div class="step" data-step="5">
+          <span class="step-num">5</span>
+          <span class="step-label">Fabric</span>
+        </div>
+        <div class="step" data-step="6">
+          <span class="step-num">6</span>
+          <span class="step-label">Quality</span>
+        </div>
+        <div class="step" data-step="7">
+          <span class="step-num">7</span>
+          <span class="step-label">Review</span>
+        </div>
+      </div>
+
+
+      <!-- ─── STEP 1: METADATA ────────── -->
+      <div class="form-step active" id="step-1">
+        <h2>Sample Metadata</h2>
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="sampleID">Sample ID</label>
+            <div class="id-gen-row">
+              <input type="text" id="sampleID"
+                     placeholder="KTS-2026-041501"
+                     readonly />
+              <button type="button"
+                      id="btn-gen-id"
+                      class="btn-small">
+                Generate
+              </button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="dateCreated">Date Created</label>
+            <input type="datetime-local"
+                   id="dateCreated" />
+          </div>
+
+          <div class="field">
+            <label for="batchNumber">Batch Number</label>
+            <input type="text" id="batchNumber"
+                   placeholder="BATCH-KTS-2026-Q2-001" />
+          </div>
+
+          <div class="field">
+            <label for="researcher">Researcher</label>
+            <input type="text" id="researcher"
+                   placeholder="Dr. Chen" />
+          </div>
+
+          <div class="field">
+            <label for="projectCode">Project Code</label>
+            <input type="text" id="projectCode"
+                   placeholder="TX-KNIT-2026" />
+          </div>
+
+          <div class="field">
+            <label for="sampleType">Sample Type</label>
+            <select id="sampleType">
+              <option value="">Select...</option>
+              <option value="production">Production</option>
+              <option value="prototype">Prototype</option>
+              <option value="test">Test</option>
+              <option value="reference">Reference</option>
+              <option value="experimental">
+                Experimental
+              </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="intendedApp">
+              Intended Application
+            </label>
+            <select id="intendedApp">
+              <option value="">Select...</option>
+              <option value="apparel_outerwear">
+                Apparel — Outerwear
+              </option>
+              <option value="apparel_innerwear">
+                Apparel — Innerwear
+              </option>
+              <option value="apparel_accessories">
+                Apparel — Accessories
+              </option>
+              <option value="home_textiles">
+                Home Textiles
+              </option>
+              <option value="technical">Technical</option>
+              <option value="medical">Medical</option>
+              <option value="research">
+                Research / Experimental
+              </option>
+            </select>
+          </div>
+
+          <div class="field full-width">
+            <label for="tags">Tags</label>
+            <div class="tag-input-wrapper">
+              <div id="tag-container"
+                   class="tag-container"></div>
+              <input type="text" id="tagInput"
+                     placeholder="Type tag + Enter" />
+            </div>
+          </div>
+
+          <div class="field full-width">
+            <label for="notes-meta">Notes</label>
+            <textarea id="notes-meta" rows="3"
+              placeholder="General notes...">
+            </textarea>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ─── STEP 2: YARN ─────────────── -->
+      <div class="form-step" id="step-2">
+        <h2>Yarn Specification</h2>
+
+        <div id="yarn-entries">
+          <!-- Yarn entries injected by JS -->
+        </div>
+
+        <button type="button" id="btn-add-yarn"
+                class="btn-secondary">
+          + Add Yarn Position
+        </button>
+
+        <!-- YARN ENTRY TEMPLATE -->
+        <template id="yarn-template">
+          <div class="yarn-card" data-yarn-index="">
+            <div class="yarn-card-header">
+              <h3>
+                Yarn Position
+                <span class="yarn-pos-num"></span>
+              </h3>
+              <div class="yarn-card-actions">
+                <span class="yarn-code-preview"></span>
+                <button type="button"
+                        class="btn-remove-yarn btn-icon"
+                        title="Remove">
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <!-- Role -->
+              <div class="field">
+                <label>Role</label>
+                <select class="yarn-role">
+                  <option value="ground">Ground</option>
+                  <option value="contrast">Contrast</option>
+                  <option value="accent">Accent</option>
+                  <option value="core">Core</option>
+                  <option value="elastic">Elastic</option>
+                  <option value="effect">Effect</option>
+                </select>
+              </div>
+
+              <!-- Primary Fiber -->
+              <div class="field">
+                <label>Primary Fiber</label>
+                <select class="yarn-fiber-primary">
+                  <option value="">Select...</option>
+                </select>
+              </div>
+
+              <!-- Primary % -->
+              <div class="field">
+                <label>Primary %</label>
+                <input type="number" min="1" max="100"
+                       class="yarn-fiber-primary-pct"
+                       value="100" />
+              </div>
+
+              <!-- Secondary Fiber -->
+              <div class="field">
+                <label>Secondary Fiber</label>
+                <select class="yarn-fiber-secondary">
+                  <option value="">None</option>
+                </select>
+              </div>
+
+              <!-- Secondary % (auto-calc) -->
+              <div class="field">
+                <label>Secondary %</label>
+                <input type="number" min="0" max="99"
+                       class="yarn-fiber-secondary-pct"
+                       value="0" readonly />
+              </div>
+
+              <!-- Construction -->
+              <div class="field">
+                <label>Construction</label>
+                <select class="yarn-construction">
+                  <option value="">Select...</option>
+                </select>
+              </div>
+
+              <!-- Ply Count -->
+              <div class="field">
+                <label>Ply Count</label>
+                <input type="number" min="1" max="12"
+                       class="yarn-ply" value="2" />
+              </div>
+
+              <!-- Twist Direction -->
+              <div class="field">
+                <label>Twist Direction</label>
+                <select class="yarn-twist">
+                  <option value="S">S-twist</option>
+                  <option value="Z">Z-twist</option>
+                </select>
+              </div>
+
+              <!-- Weight Class -->
+              <div class="field">
+                <label>Weight Class (CYC)</label>
+                <select class="yarn-weight">
+                  <option value="">Select...</option>
+                  <option value="0">0 - Lace</option>
+                  <option value="1">
+                    1 - Super Fine
+                  </option>
+                  <option value="2">2 - Fine</option>
+                  <option value="3">3 - Light/DK</option>
+                  <option value="4">
+                    4 - Medium/Worsted
+                  </option>
+                  <option value="5">5 - Bulky</option>
+                  <option value="6">
+                    6 - Super Bulky
+                  </option>
+                  <option value="7">7 - Jumbo</option>
+                </select>
+              </div>
+
+              <!-- Tex -->
+              <div class="field">
+                <label>Tex</label>
+                <input type="number" step="0.1"
+                       class="yarn-tex"
+                       placeholder="35.7" />
+              </div>
+
+              <!-- Color Name -->
+              <div class="field">
+                <label>Color Name</label>
+                <input type="text"
+                       class="yarn-color-name"
+                       placeholder="Midnight Navy" />
+              </div>
+
+              <!-- Color Code -->
+              <div class="field">
+                <label>Color Code</label>
+                <input type="text"
+                       class="yarn-color-code"
+                       placeholder="YC-4521-NAVY" />
+              </div>
+
+              <!-- Color Swatch Picker -->
+              <div class="field">
+                <label>Swatch Color</label>
+                <input type="color"
+                       class="yarn-color-swatch"
+                       value="#000080" />
+              </div>
+
+              <!-- Color Treatment -->
+              <div class="field">
+                <label>Color Treatment</label>
+                <select class="yarn-color-treatment">
+                  <option value="">Select...</option>
+                </select>
+              </div>
+
+              <!-- Dye Lot -->
+              <div class="field">
+                <label>Dye Lot</label>
+                <input type="text"
+                       class="yarn-dye-lot"
+                       placeholder="DL-2026-0342" />
+              </div>
+
+              <!-- Finish -->
+              <div class="field">
+                <label>Finish</label>
+                <select class="yarn-finish">
+                  <option value="">Select...</option>
+                </select>
+              </div>
+
+              <!-- Supplier -->
+              <div class="field">
+                <label>Supplier</label>
+                <input type="text"
+                       class="yarn-supplier"
+                       placeholder="YarnCo Australia" />
+              </div>
+
+              <!-- Lot Number -->
+              <div class="field">
+                <label>Lot Number</label>
+                <input type="text"
+                       class="yarn-lot-number"
+                       placeholder="LOT-MW-2026-0089" />
+              </div>
+
+              <!-- Tensile Strength -->
+              <div class="field">
+                <label>Tensile (cN/tex)</label>
+                <input type="number" step="0.1"
+                       class="yarn-tensile"
+                       placeholder="3.8" />
+              </div>
+
+              <!-- Elongation -->
+              <div class="field">
+                <label>Elongation (%)</label>
+                <input type="number" step="0.1"
+                       class="yarn-elongation"
+                       placeholder="32" />
+              </div>
+
+              <!-- Generated Code Preview -->
+              <div class="field full-width">
+                <label>Generated Yarn Code</label>
+                <div class="code-preview">
+                  <code class="yarn-taxonomy-code">
+                    —
+                  </code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+
+      <!-- ─── STEP 3: PATTERN ──────────── -->
+      <div class="form-step" id="step-3">
+        <h2>Pattern & BMP</h2>
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="stitchType">Stitch Type</label>
+            <select id="stitchType">
+              <option value="">Select...</option>
+              <option value="stockinette">
+                Stockinette
+              </option>
+              <option value="garter">Garter</option>
+              <option value="rib_1x1">Rib 1×1</option>
+              <option value="rib_2x2">Rib 2×2</option>
+              <option value="seed">Seed</option>
+              <option value="moss">Moss</option>
+              <option value="cable">Cable</option>
+              <option value="jacquard">Jacquard</option>
+              <option value="fair_isle">Fair Isle</option>
+              <option value="intarsia">Intarsia</option>
+              <option value="tuck">Tuck</option>
+              <option value="slip_stitch">
+                Slip Stitch
+              </option>
+              <option value="lace">Lace</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="knitArch">Architecture</label>
+            <select id="knitArch">
+              <option value="">Select...</option>
+              <option value="single_jersey">
+                Single Jersey
+              </option>
+              <option value="double_jersey">
+                Double Jersey
+              </option>
+              <option value="interlock">Interlock</option>
+              <option value="purl_fabric">
+                Purl Fabric
+              </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="repeatH">
+              Repeat Width (stitches)
+            </label>
+            <input type="number" id="repeatH"
+                   min="1" placeholder="24" />
+          </div>
+
+          <div class="field">
+            <label for="repeatV">
+              Repeat Height (rows)
+            </label>
+            <input type="number" id="repeatV"
+                   min="1" placeholder="32" />
+          </div>
+
+          <div class="field">
+            <label for="repeatCountX">
+              Repeats Horizontal
+            </label>
+            <input type="number" id="repeatCountX"
+                   min="1" placeholder="8" />
+          </div>
+
+          <div class="field">
+            <label for="repeatCountY">
+              Repeats Vertical
+            </label>
+            <input type="number" id="repeatCountY"
+                   min="1" placeholder="6" />
+          </div>
+        </div>
+
+        <!-- BMP UPLOADS -->
+        <h3>BMP Files</h3>
+        <div class="bmp-upload-grid">
+
+          <!-- Machine-Ready BMP -->
+          <div class="bmp-upload-card">
+            <h4>Machine-Ready Pattern</h4>
+            <div class="bmp-drop-zone"
+                 id="bmp-drop-machine">
+              <div class="drop-content">
+                <span class="drop-icon">📄</span>
+                <p>Drop BMP or click to upload</p>
+                <p class="drop-hint">
+                  1-bit recommended for
+                  machine patterns
+                </p>
+              </div>
+              <input type="file"
+                     class="bmp-file-input"
+                     accept=".bmp"
+                     id="bmp-input-machine" />
+            </div>
+            <div class="bmp-preview"
+                 id="bmp-preview-machine">
+              <canvas id="bmp-canvas-machine"></canvas>
+              <div class="bmp-info"
+                   id="bmp-info-machine"></div>
+            </div>
+          </div>
+
+          <!-- Pattern Chart BMP -->
+          <div class="bmp-upload-card">
+            <h4>Pattern Chart</h4>
+            <div class="bmp-drop-zone"
+                 id="bmp-drop-chart">
+              <div class="drop-content">
+                <span class="drop-icon">🎨</span>
+                <p>Drop BMP or click to upload</p>
+                <p class="drop-hint">
+                  24-bit color chart
+                </p>
+              </div>
+              <input type="file"
+                     class="bmp-file-input"
+                     accept=".bmp"
+                     id="bmp-input-chart" />
+            </div>
+            <div class="bmp-preview"
+                 id="bmp-preview-chart">
+              <canvas id="bmp-canvas-chart"></canvas>
+              <div class="bmp-info"
+                   id="bmp-info-chart"></div>
+            </div>
+          </div>
+
+          <!-- Photograph BMP -->
+          <div class="bmp-upload-card">
+            <h4>Fabric Photograph</h4>
+            <div class="bmp-drop-zone"
+                 id="bmp-drop-photo">
+              <div class="drop-content">
+                <span class="drop-icon">📷</span>
+                <p>Drop BMP or click to upload</p>
+              </div>
+              <input type="file"
+                     class="bmp-file-input"
+                     accept=".bmp"
+                     id="bmp-input-photo" />
+            </div>
+            <div class="bmp-preview"
+                 id="bmp-preview-photo">
+              <canvas id="bmp-canvas-photo"></canvas>
+              <div class="bmp-info"
+                   id="bmp-info-photo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Mapping -->
+        <h3>BMP Color Mapping</h3>
+        <div id="color-map-entries">
+          <!-- Injected by JS based on yarn count -->
+        </div>
+      </div>
+
+
+      <!-- ─── STEP 4: MACHINE ──────────── -->
+      <div class="form-step" id="step-4">
+        <h2>Machine Parameters</h2>
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="machineModel">
+              Machine Model
+            </label>
+            <select id="machineModel">
+              <option value="">Select...</option>
+              <option value="brother_kh930e">
+                Brother KH-930e
+              </option>
+              <option value="brother_kh970">
+                Brother KH-970
+              </option>
+              <option value="silver_reed_sk840">
+                Silver Reed SK-840
+              </option>
+              <option value="passap_e6000">
+                Passap E6000
+              </option>
+              <option value="shima_seiki_wholegarment">
+                Shima Seiki WHOLEGARMENT
+              </option>
+              <option value="stoll_cms">
+                Stoll CMS
+              </option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+
+          <div class="field" id="custom-machine-field"
+               style="display:none">
+            <label for="customMachine">
+              Custom Machine Name
+            </label>
+            <input type="text" id="customMachine"
+                   placeholder="Manufacturer Model" />
+          </div>
+
+          <div class="field">
+            <label for="machineSerial">
+              Serial Number
+            </label>
+            <input type="text" id="machineSerial"
+                   placeholder="KH930E-2023-04521" />
+          </div>
+
+          <div class="field">
+            <label for="gaugeE">Machine Gauge (E)</label>
+            <input type="number" id="gaugeE"
+                   min="1" max="28"
+                   placeholder="15" />
+          </div>
+
+          <div class="field">
+            <label for="needleCount">
+              Needle Count
+            </label>
+            <input type="number" id="needleCount"
+                   min="1" max="500"
+                   placeholder="200" />
+          </div>
+
+          <div class="field">
+            <label for="needlesInUse">
+              Needles In Use
+            </label>
+            <input type="number" id="needlesInUse"
+                   min="1" placeholder="192" />
+          </div>
+
+          <div class="field">
+            <label for="bedType">Bed Type</label>
+            <select id="bedType">
+              <option value="single_bed">
+                Single Bed
+              </option>
+              <option value="double_bed">
+                Double Bed
+              </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="carriageType">
+              Carriage Type
+            </label>
+            <select id="carriageType">
+              <option value="K">K Carriage</option>
+              <option value="L">L Carriage</option>
+              <option value="G">G Carriage</option>
+              <option value="intarsia">
+                Intarsia Carriage
+              </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="camSetting">Cam Setting</label>
+            <select id="camSetting">
+              <option value="plain">Plain</option>
+              <option value="jacquard">Jacquard</option>
+              <option value="tuck">Tuck</option>
+              <option value="slip">Slip</option>
+              <option value="lace">Lace</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="speedPct">Speed (%)</label>
+            <div class="range-with-value">
+              <input type="range" id="speedPct"
+                     min="10" max="100" value="75" />
+              <output id="speedPctVal">75%</output>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mainTension">
+              Main Tension Dial
+            </label>
+            <input type="number" id="mainTension"
+                   min="0" max="10" step="0.5"
+                   placeholder="5" />
+          </div>
+
+          <div class="field">
+            <label for="takedownTension">
+              Takedown Tension
+            </label>
+            <input type="number" id="takedownTension"
+                   min="0" max="10" step="0.5"
+                   placeholder="3" />
+          </div>
+
+          <div class="field">
+            <label for="totalRows">Total Rows</label>
+            <input type="number" id="totalRows"
+                   min="1" placeholder="192" />
+          </div>
+
+          <div class="field">
+            <label for="totalStitches">
+              Total Stitches/Row
+            </label>
+            <input type="number" id="totalStitches"
+                   min="1" placeholder="192" />
+          </div>
+
+          <div class="field">
+            <label for="envTemp">
+              Temperature (°C)
+            </label>
+            <input type="number" id="envTemp"
+                   step="0.1" placeholder="21.5" />
+          </div>
+
+          <div class="field">
+            <label for="envHumidity">
+              Humidity (%)
+            </label>
+            <input type="number" id="envHumidity"
+                   step="0.1" placeholder="55" />
+          </div>
+
+          <!-- Program File Upload -->
+          <div class="field full-width">
+            <label for="programFile">
+              Program File (.pat / .gcode)
+            </label>
+            <input type="file" id="programFile"
+                   accept=".pat,.gcode,.txt,.csv" />
+            <div class="file-info"
+                 id="program-file-info"></div>
+          </div>
+
+          <div class="field full-width">
+            <label for="notes-machine">
+              Machine Notes
+            </label>
+            <textarea id="notes-machine" rows="3"
+              placeholder="Setup notes, issues...">
+            </textarea>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ─── STEP 5: FABRIC PROPERTIES ── -->
+      <div class="form-step" id="step-5">
+        <h2>Fabric Properties</h2>
+
+        <!-- Dimensions Sub-section -->
+        <h3>Dimensions & Gauge</h3>
+        <div class="form-grid">
+          <div class="field">
+            <label for="fabWidthOnMachine">
+              Width On-Machine (mm)
+            </label>
+            <input type="number" step="0.1"
+                   id="fabWidthOnMachine"
+                   placeholder="384" />
+          </div>
+          <div class="field">
+            <label for="fabLengthOnMachine">
+              Length On-Machine (mm)
+            </label>
+            <input type="number" step="0.1"
+                   id="fabLengthOnMachine"
+                   placeholder="345.6" />
+          </div>
+          <div class="field">
+            <label for="fabWidthRelaxed">
+              Width Relaxed (mm)
+            </label>
+            <input type="number" step="0.1"
+                   id="fabWidthRelaxed"
+                   placeholder="360" />
+          </div>
+          <div class="field">
+            <label for="fabLengthRelaxed">
+              Length Relaxed (mm)
+            </label>
+            <input type="number" step="0.1"
+                   id="fabLengthRelaxed"
+                   placeholder="330" />
+          </div>
+          <div class="field">
+            <label for="gaugeH">
+              Stitches / 10cm
+            </label>
+            <input type="number" step="0.1"
+                   id="gaugeH" placeholder="30" />
+          </div>
+          <div class="field">
+            <label for="gaugeV">
+              Rows / 10cm
+            </label>
+            <input type="number" step="0.1"
+                   id="gaugeV" placeholder="40" />
+          </div>
+          <div class="field">
+            <label for="fabWeight">
+              Fabric Mass (g)
+            </label>
+            <input type="number" step="0.1"
+                   id="fabWeight" placeholder="85.4" />
+          </div>
+          <div class="field">
+            <label for="fabGSM">GSM (g/m²)</label>
+            <input type="number" step="0.1"
+                   id="fabGSM" placeholder="245" />
+            <button type="button"
+                    id="btn-calc-gsm"
+                    class="btn-small">
+              Auto-Calc
+            </button>
+          </div>
+          <div class="field">
+            <label for="fabThickness">
+              Thickness (mm)
+            </label>
+            <input type="number" step="0.01"
+                   id="fabThickness"
+                   placeholder="1.85" />
+          </div>
+          <div class="field">
+            <label for="loopLength">
+              Loop Length (mm)
+            </label>
+            <input type="number" step="0.1"
+                   id="loopLength" placeholder="4.2" />
+          </div>
+        </div>
+
+        <!-- Mechanical Sub-section -->
+        <h3>Mechanical Properties</h3>
+        <div class="form-grid">
+          <div class="field">
+            <label for="burstStrength">
+              Burst Strength (kPa)
+            </label>
+            <input type="number" step="0.1"
+                   id="burstStrength"
+                   placeholder="580" />
+          </div>
+          <div class="field">
+            <label for="abrasionCycles">
+              Abrasion Cycles (Martindale)
+            </label>
+            <input type="number"
+                   id="abrasionCycles"
+                   placeholder="25000" />
+          </div>
+          <div class="field">
+            <label for="
