@@ -15,7 +15,7 @@
   <header id="app-header">
     <div class="header-inner">
       <div class="logo-group">
-        <svg class="logo-icon" viewBox="0 0 40 40"
+        <!-- <svg class="logo-icon" viewBox="0 0 40 40"
              width="40" height="40">
           <rect x="2" y="2" width="36" height="36"
                 rx="6" fill="#1a1a2e" />
@@ -31,8 +31,50 @@
                    Q30 26 34 30"
                 stroke="#16213e" stroke-width="2.5"
                 fill="none" />
+        </svg> -->
+        <svg width="420" height="140" viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .tmark-square-dark  { fill:#14568A; }
+            .tmark-square-light { fill:#71B5F5; }
+            .tmark-square-accent{ fill:#F7B529; }
+            .tmark-text {
+              font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                           Roboto, Helvetica, Arial, sans-serif;
+              font-size: 22px;
+              font-weight: 600;
+              fill:#111111;
+            }
+          </style>
+        
+          <!-- 3x3 rounded-square mark -->
+          <g id="mark" transform="translate(10,10)">
+            <!-- row 1 -->
+            <rect x="0"   y="0"  width="40" height="40" rx="8" class="tmark-square-dark"/>
+            <rect x="50"  y="0"  width="40" height="40" rx="8" class="tmark-square-light"/>
+            <rect x="100" y="0"  width="40" height="40" rx="8" class="tmark-square-dark" fill="none" stroke="#14568A" stroke-width="4"/>
+        
+            <!-- row 2 -->
+            <rect x="0"   y="50" width="40" height="40" rx="8" class="tmark-square-light" fill="none" stroke="#71B5F5" stroke-width="4"/>
+            <rect x="50"  y="50" width="40" height="40" rx="8" class="tmark-square-accent"/>
+            <rect x="100" y="50" width="40" height="40" rx="8" class="tmark-square-light"/>
+        
+            <!-- row 3 -->
+            <rect x="0"   y="100" width="40" height="40" rx="8" class="tmark-square-accent"/>
+            <rect x="50"  y="100" width="40" height="40" rx="8" class="tmark-square-light"/>
+            <rect x="100" y="100" width="40" height="40" rx="8" class="tmark-square-accent"/>
+          </g>
+        
+          <!-- text to the right of the mark -->
+          <g id="wordmark" class="tmark-text" transform="translate(170,40)">
+            <text x="0" y="0">tailored</text>
+            <text x="0" y="28">materiality</text>
+            <text x="0" y="56">research</text>
+          </g>
         </svg>
-        <h1>KnitLab <span class="version">v1.0</span></h1>
+
+
+        
+        <h1>KnitBank <span class="version">v1.0</span></h1>
       </div>
       <nav>
         <button class="nav-btn active"
